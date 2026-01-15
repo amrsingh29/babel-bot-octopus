@@ -1,0 +1,125 @@
+{{ define "main" }}
+<!-- Hero Section -->
+{{ partial "hero.html" (dict
+    "headline" "How I Think About Designing AI Systems"
+    "subheadline" "Most AI discussions focus on what systems can do. My work starts with what they should be allowed to do."
+    "centered" true
+    "context" .
+) }}
+
+<!-- Introduction Section -->
+<section class="section-padding bg-neutral-50">
+  <div class="section">
+    <div class="max-w-3xl mx-auto">
+      <div class="prose prose-lg">
+        <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+          In enterprise environments, intelligence without control is a liability. Autonomy without governance erodes trust. And systems that cannot explain or correct themselves eventually fail at scale.
+        </p>
+        <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+          I approach AI system design as a <strong>decision-making problem</strong>, not a modeling problem. That means asking questions like:
+        </p>
+        <ul class="space-y-2 text-neutral-700 mb-6">
+          <li>Where should autonomy begin — and where must it stop?</li>
+          <li>How are decisions evaluated, overridden, or reversed?</li>
+          <li>What happens when the system is confidently wrong?</li>
+          <li>Who remains accountable when humans and machines act together?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Context Section -->
+<section class="section-padding">
+  <div class="section">
+    <div class="max-w-3xl mx-auto">
+      <div class="callout">
+        <h3 class="text-lg font-semibold text-navy-900 mb-3">My thinking is shaped by operating in environments where:</h3>
+        <ul class="space-y-2 text-neutral-700">
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-navy-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Failure has real business and societal impact</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-navy-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Constraints are non-negotiable</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-navy-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Tradeoffs must be made explicit, not hidden behind abstractions</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Pillars Section -->
+<section class="section-padding bg-neutral-50">
+  <div class="section">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">Core Thinking Pillars</h2>
+      <p class="text-lg text-neutral-600 max-w-2xl mx-auto">Frameworks designed to hold up under pressure — not theoretical, but operational.</p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2">
+      <!-- Pillar 1: Autonomy -->
+      {{ partial "card.html" (dict
+          "title" "Autonomy Is a Design Choice, Not a Feature"
+          "description" "Autonomy should be granted deliberately, bounded explicitly, and revisited continuously. Systems earn autonomy through demonstrated reliability, transparency, and the ability to defer or escalate when uncertainty rises."
+          "icon" "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z\"/><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 12a3 3 0 11-6 0 3 3 0 016 0z\"/></svg>"
+          "category" "Pillar 1"
+          "categoryColor" "bg-teal-100 text-teal-800"
+          "variant" "featured"
+      ) }}
+
+      <!-- Pillar 2: Governance -->
+      {{ partial "card.html" (dict
+          "title" "Governance Must Be Embedded, Not Bolted On"
+          "description" "Effective AI governance is encoded into workflows, decision paths, and feedback loops. Constraints, approvals, and accountability are part of day-to-day operations, not applied after the fact."
+          "icon" "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\"/></svg>"
+          "category" "Pillar 2"
+          "categoryColor" "bg-teal-100 text-teal-800"
+          "variant" "featured"
+      ) }}
+
+      <!-- Pillar 3: Evaluation -->
+      {{ partial "card.html" (dict
+          "title" "Evaluation Is a Continuous Loop, Not a One-Time Gate"
+          "description" "Live evaluation of decision quality, detecting drift, capturing uncertainty, and creating mechanisms for correction ensures operational trust and reliability."
+          "icon" "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z\"/></svg>"
+          "category" "Pillar 3"
+          "categoryColor" "bg-teal-100 text-teal-800"
+          "variant" "featured"
+      ) }}
+
+      <!-- Pillar 4: Human-in-the-Loop -->
+      {{ partial "card.html" (dict
+          "title" "Human-in-the-Loop Is a Responsibility Model"
+          "description" "Human intervention defines accountability. Interaction models are designed so humans intervene only where context or judgment outweighs automation, while ownership remains unambiguous."
+          "icon" "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z\"/></svg>"
+          "category" "Pillar 4"
+          "categoryColor" "bg-teal-100 text-teal-800"
+          "variant" "featured"
+      ) }}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding bg-navy-900">
+  <div class="section text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">See These Principles in Action</h2>
+    <p class="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto">
+      Explore case studies where these frameworks were applied to solve real enterprise challenges.
+    </p>
+    <a href="/work/" class="btn-primary bg-white text-navy-900 hover:bg-neutral-100">View My Work</a>
+  </div>
+</section>
+{{ end }}

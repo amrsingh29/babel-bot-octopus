@@ -1,0 +1,202 @@
+{{ define "main" }}
+<!-- Hero Section -->
+{{ partial "hero.html" (dict
+    "headline" "About"
+    "subheadline" "I work at the intersection of AI systems, enterprise operations, and decision-making."
+    "centered" true
+    "context" .
+) }}
+
+<!-- Who I Am Section -->
+<section class="section-padding bg-neutral-50">
+  <div class="section">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-900 mb-6">Who I Am</h2>
+      <div class="prose prose-lg">
+        <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+          My focus is not on building models in isolation, but on <strong>designing intelligence that can operate responsibly inside complex, real-world environments</strong>.
+        </p>
+        <p class="text-lg text-neutral-700 leading-relaxed">
+          I am drawn to problems where technology meets ambiguity — where systems must reason, adapt, and act under constraints rather than ideal conditions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Environments Section -->
+<section class="section-padding">
+  <div class="section">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-900 mb-6">The Environments That Shaped Me</h2>
+      <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+        Much of my work has been shaped by large, distributed, and operationally critical systems. These are environments where:
+      </p>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="flex items-center gap-3 p-4 bg-neutral-50 rounded-lg">
+          <svg class="w-5 h-5 text-navy-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          <span class="text-neutral-700">Scale matters</span>
+        </div>
+        <div class="flex items-center gap-3 p-4 bg-neutral-50 rounded-lg">
+          <svg class="w-5 h-5 text-navy-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+          <span class="text-neutral-700">Human decisions carry consequences</span>
+        </div>
+        <div class="flex items-center gap-3 p-4 bg-neutral-50 rounded-lg">
+          <svg class="w-5 h-5 text-navy-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+          <span class="text-neutral-700">Automation must earn trust</span>
+        </div>
+        <div class="flex items-center gap-3 p-4 bg-neutral-50 rounded-lg">
+          <svg class="w-5 h-5 text-navy-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+          </svg>
+          <span class="text-neutral-700">Failure is rarely academic</span>
+        </div>
+      </div>
+      <p class="text-lg text-neutral-700 leading-relaxed mt-6">
+        Working closely with enterprise and public-sector contexts has taught me that <strong>most hard problems are not technical alone</strong>. They are organizational, behavioral, and systemic.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Beliefs Section -->
+<section class="section-padding bg-neutral-50">
+  <div class="section">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-900 mb-6">How This Shaped My Thinking</h2>
+      <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+        Over time, this led me to a few strong beliefs:
+      </p>
+      <div class="space-y-4">
+        <div class="callout">
+          <p class="font-semibold text-navy-900">Autonomy without governance is fragile</p>
+        </div>
+        <div class="callout">
+          <p class="font-semibold text-navy-900">Intelligence without evaluation is unreliable</p>
+        </div>
+        <div class="callout">
+          <p class="font-semibold text-navy-900">Automation without human judgment is incomplete</p>
+        </div>
+      </div>
+      <p class="text-lg text-neutral-700 leading-relaxed mt-6">
+        Good AI systems are not defined by how clever they are, but by how well they fit into the realities of human organizations. Designing for accountability, observability, and decision clarity matters more than optimizing for novelty.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- What I Work On Section -->
+<section class="section-padding">
+  <div class="section">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-900 mb-6">What I Work On</h2>
+      <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+        Today, I focus on designing and experimenting with:
+      </p>
+      <div class="grid gap-4">
+        <div class="flex items-start gap-3 p-4 border border-neutral-200 rounded-lg">
+          <svg class="w-5 h-5 text-teal-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+          </svg>
+          <div>
+            <p class="font-semibold text-navy-900">Agentic AI systems</p>
+            <p class="text-neutral-600 text-sm">That operate across workflows</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 p-4 border border-neutral-200 rounded-lg">
+          <svg class="w-5 h-5 text-teal-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+          </svg>
+          <div>
+            <p class="font-semibold text-navy-900">AI for service management and operations</p>
+            <p class="text-neutral-600 text-sm">Where decisions must be timely and explainable</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 p-4 border border-neutral-200 rounded-lg">
+          <svg class="w-5 h-5 text-teal-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+          <div>
+            <p class="font-semibold text-navy-900">Evaluation and guardrails</p>
+            <p class="text-neutral-600 text-sm">That keep AI useful under pressure</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 p-4 border border-neutral-200 rounded-lg">
+          <svg class="w-5 h-5 text-teal-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+          <div>
+            <p class="font-semibold text-navy-900">Reference architectures and demos</p>
+            <p class="text-neutral-600 text-sm">That translate ideas into something teams can reason about</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-lg text-neutral-700 leading-relaxed mt-6">
+        This work often sits between strategy and execution — where ideas must survive contact with real systems, people, and constraints.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Credibility Section -->
+<section class="section-padding bg-navy-50">
+  <div class="section">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-navy-900 mb-6">Credibility, Quietly</h2>
+      <ul class="space-y-3">
+        <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-navy-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span class="text-neutral-700">Principal Solution Engineer working across <strong>APAC and ASEAN</strong></span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-navy-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span class="text-neutral-700">Regularly engage with <strong>CIOs, CTOs, and senior operational leaders</strong></span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-navy-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span class="text-neutral-700">Experience spanning <strong>ITSM, AIOps, observability, and enterprise automation</strong></span>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-navy-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span class="text-neutral-700">Strong preference for systems that can be <strong>understood, governed, and trusted</strong></span>
+        </li>
+      </ul>
+      <p class="text-lg text-neutral-700 leading-relaxed mt-6 font-medium">
+        I value clarity over scale, and judgment over speed.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Closing Section -->
+<section class="section-padding bg-navy-900">
+  <div class="section text-center">
+    <blockquote class="max-w-3xl mx-auto mb-8">
+      <p class="text-xl md:text-2xl text-white leading-relaxed">
+        The name <em>Babel-Bot-Octopus</em> reflects how I think about intelligence: many tentacles reaching into complexity, guided by a single intent.
+      </p>
+    </blockquote>
+    <p class="text-neutral-300 mb-8">
+      If any of this resonates, you may find more context in the Thinking and Work sections.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="/thinking/" class="btn-primary bg-white text-navy-900 hover:bg-neutral-100">Explore My Thinking</a>
+      <a href="/work/" class="btn-secondary border-white text-white hover:bg-white hover:text-navy-900">View My Work</a>
+    </div>
+  </div>
+</section>
+{{ end }}

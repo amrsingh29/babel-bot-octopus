@@ -1,20 +1,80 @@
 {{ define "main" }}
 <!-- Hero Section -->
 {{ partial "hero.html" (dict
-    "headline" .Site.Params.author
-    "subheadline" (printf "%s at %s" .Site.Params.role .Site.Params.company)
-    "description" .Site.Params.description
-    "primaryCTA" "View Work"
-    "primaryURL" "/work/"
-    "secondaryCTA" "Explore Thinking"
-    "secondaryURL" "/thinking/"
+    "headline" "I design AI-driven systems that must operate reliably in complex enterprise environments."
+    "subheadline" "My work sits at the intersection of enterprise operations, service management, and autonomous AI — where scale, governance, and failure modes matter as much as innovation."
+    "primaryCTA" "How I Think"
+    "primaryURL" "/thinking/"
+    "secondaryCTA" "View Work"
+    "secondaryURL" "/work/"
     "context" .
 ) }}
 
-<!-- Content Section -->
+<!-- Value Propositions Section -->
 <section class="section-padding bg-neutral-50">
   <div class="section">
-    {{ .Content }}
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">What I Consistently Optimize For</h2>
+      <p class="text-lg text-neutral-600 max-w-2xl mx-auto">Focus areas that define my approach to AI system design</p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      <!-- Pillar 1: Accountability -->
+      {{ partial "card.html" (dict
+          "title" "Accountable AI Systems"
+          "description" "Designing AI systems that can operate with accountability, not just intelligence. Systems that explain, audit, and take responsibility for their decisions."
+          "icon" "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\"/></svg>"
+          "variant" "default"
+      ) }}
+
+      <!-- Pillar 2: Executive Trust -->
+      {{ partial "card.html" (dict
+          "title" "Executive-Ready Decisions"
+          "description" "Translating technical complexity into decisions executives can trust. Bridging the gap between AI capabilities and business confidence."
+          "icon" "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>"
+          "variant" "default"
+      ) }}
+
+      <!-- Pillar 3: Operational Resilience -->
+      {{ partial "card.html" (dict
+          "title" "Operational Resilience"
+          "description" "Building architectures that survive real operational stress, not just demos. Systems designed for failure modes, edge cases, and production realities."
+          "icon" "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z\"/></svg>"
+          "variant" "default"
+      ) }}
+    </div>
+  </div>
+</section>
+
+<!-- Logo Strip Section -->
+<section class="section-padding">
+  <div class="section">
+    <div class="text-center mb-8">
+      <p class="text-sm font-medium text-neutral-500 uppercase tracking-wider">Experience across enterprise and public sector</p>
+    </div>
+    <div class="logo-strip flex flex-wrap justify-center items-center gap-8 md:gap-12">
+      <!-- Placeholder logos - replace with actual client/partner logos -->
+      <div class="h-8 w-24 bg-neutral-200 rounded flex items-center justify-center text-neutral-400 text-xs">Logo 1</div>
+      <div class="h-8 w-24 bg-neutral-200 rounded flex items-center justify-center text-neutral-400 text-xs">Logo 2</div>
+      <div class="h-8 w-24 bg-neutral-200 rounded flex items-center justify-center text-neutral-400 text-xs">Logo 3</div>
+      <div class="h-8 w-24 bg-neutral-200 rounded flex items-center justify-center text-neutral-400 text-xs">Logo 4</div>
+      <div class="h-8 w-24 bg-neutral-200 rounded flex items-center justify-center text-neutral-400 text-xs">Logo 5</div>
+    </div>
+  </div>
+</section>
+
+<!-- Guiding Belief / CTA Section -->
+<section class="section-padding bg-navy-900">
+  <div class="section text-center">
+    <blockquote class="max-w-3xl mx-auto">
+      <p class="text-2xl md:text-3xl font-medium text-white leading-relaxed mb-6">
+        "The future of AI depends less on how intelligent systems become — and more on how responsibly we design its role within human and organizational systems."
+      </p>
+    </blockquote>
+    <div class="flex flex-wrap justify-center gap-4 mt-8">
+      <a href="/thinking/" class="btn-primary bg-white text-navy-900 hover:bg-neutral-100">Explore My Thinking</a>
+      <a href="/about/" class="btn-secondary border-white text-white hover:bg-white hover:text-navy-900">About Me</a>
+    </div>
   </div>
 </section>
 {{ end }}

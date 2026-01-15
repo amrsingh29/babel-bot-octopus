@@ -4,5 +4,3 @@ description: "My framework for evaluating AI agent solutions across four core pi
 draft: false
 layout: "thinking"
 ---
-
-<!-- Thinking page content will be populated in Phase 2 -->
