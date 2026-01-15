@@ -1,0 +1,116 @@
+{{/*
+  Card Component
+
+  Parameters (pass via dict):
+  - title: Card title (required)
+  - description: Card description text (optional)
+  - image: Image path (optional)
+  - icon: SVG icon HTML (optional, used if no image)
+  - category: Category tag text (optional)
+  - categoryColor: Category tag color class (optional, default: "bg-navy-100 text-navy-700")
+  - url: Link URL (optional, makes entire card clickable)
+  - cta: CTA button text (optional)
+  - ctaUrl: CTA button URL (optional, defaults to url)
+  - class: Additional CSS classes (optional)
+  - variant: "default" | "featured" | "compact" (optional, default: "default")
+
+  Usage:
+  {{ partial "card.html" (dict
+      "title" "Case Study Title"
+      "description" "Brief description of the case study"
+      "category" "ITSM"
+      "url" "/work/case-study/"
+      "image" "/images/case-study.jpg"
+  ) }}
+*/}}
+
+{{- $title := .title | default "" -}}
+{{- $description := .description | default "" -}}
+{{- $image := .image | default "" -}}
+{{- $icon := .icon | default "" -}}
+{{- $category := .category | default "" -}}
+{{- $categoryColor := .categoryColor | default "bg-navy-100 text-navy-700" -}}
+{{- $url := .url | default "" -}}
+{{- $cta := .cta | default "" -}}
+{{- $ctaUrl := .ctaUrl | default $url -}}
+{{- $extraClass := .class | default "" -}}
+{{- $variant := .variant | default "default" -}}
+
+{{/* Variant-based styling */}}
+{{- $cardPadding := "p-6" -}}
+{{- $titleSize := "text-xl" -}}
+{{- $descSize := "text-base" -}}
+
+{{- if eq $variant "featured" -}}
+  {{- $cardPadding = "p-8" -}}
+  {{- $titleSize = "text-2xl" -}}
+{{- else if eq $variant "compact" -}}
+  {{- $cardPadding = "p-4" -}}
+  {{- $titleSize = "text-lg" -}}
+  {{- $descSize = "text-sm" -}}
+{{- end -}}
+
+{{/* Wrapper element - use anchor if URL provided */}}
+{{- if $url }}
+<a href="{{ $url | relURL }}"
+   class="card group block {{ $cardPadding }} {{ $extraClass }} focus:outline-none focus:ring-2 focus:ring-navy-500 focus:ring-offset-2">
+{{- else }}
+<div class="card {{ $cardPadding }} {{ $extraClass }}">
+{{- end }}
+
+  {{/* Image or Icon */}}
+  {{- if $image }}
+  <div class="relative mb-4 -mx-6 -mt-6 overflow-hidden rounded-t-xl">
+    <img
+      src="{{ $image | relURL }}"
+      alt="{{ $title }}"
+      class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+      loading="lazy"
+    />
+  </div>
+  {{- else if $icon }}
+  <div class="mb-4 w-12 h-12 flex items-center justify-center rounded-lg bg-navy-100 text-navy-700">
+    {{ $icon | safeHTML }}
+  </div>
+  {{- end }}
+
+  {{/* Category Tag */}}
+  {{- if $category }}
+  <span class="inline-block px-3 py-1 mb-3 text-xs font-semibold rounded-full {{ $categoryColor }}">
+    {{ $category }}
+  </span>
+  {{- end }}
+
+  {{/* Title */}}
+  {{- if $title }}
+  <h3 class="{{ $titleSize }} font-semibold text-navy-900 mb-2 group-hover:text-navy-700 transition-colors">
+    {{ $title }}
+  </h3>
+  {{- end }}
+
+  {{/* Description */}}
+  {{- if $description }}
+  <p class="{{ $descSize }} text-neutral-600 leading-relaxed {{ if $cta }}mb-4{{ end }}">
+    {{ $description }}
+  </p>
+  {{- end }}
+
+  {{/* CTA Button (only if not using card-level link) */}}
+  {{- if and $cta $ctaUrl (not $url) }}
+  <a href="{{ $ctaUrl | relURL }}" class="btn-primary btn-sm mt-auto">
+    {{ $cta }}
+  </a>
+  {{- else if $cta }}
+  <span class="inline-flex items-center text-sm font-semibold text-navy-700 group-hover:text-navy-900 transition-colors mt-2">
+    {{ $cta }}
+    <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+    </svg>
+  </span>
+  {{- end }}
+
+{{- if $url }}
+</a>
+{{- else }}
+</div>
+{{- end }}
