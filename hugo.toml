@@ -54,6 +54,7 @@ summaryLength = 70
   role = 'Principal Solution Consultant'
   company = 'BMC'
   specialization = 'BMC Helix AIOps, AI Agent Solutions, ITSM'
+  description = 'Executive-level thinking frameworks and applied case studies in AI Agents, AIOps, and ITSM transformation'
 
   # SEO
   keywords = ['AI Agents', 'AIOps', 'ITSM', 'Solution Consultant', 'Digital Transformation']

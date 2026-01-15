@@ -1,0 +1,27 @@
+{{ define "main" }}
+<section class="section">
+  <header class="mb-12">
+    <h1 class="text-4xl md:text-5xl font-bold text-navy-900 mb-4">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="text-xl text-neutral-600">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{ .Content }}
+
+  {{ if .Pages }}
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {{ range .Pages }}
+    <article class="card">
+      <h2 class="text-xl font-semibold text-navy-900 mb-2">
+        <a href="{{ .Permalink }}" class="hover:text-navy-700">{{ .Title }}</a>
+      </h2>
+      {{ with .Summary }}
+      <p class="text-neutral-600">{{ . }}</p>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+  {{ end }}
+</section>
+{{ end }}

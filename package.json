@@ -1,0 +1,34 @@
+{
+  "name": "amar-singh-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Amar Singh - Principal Solution Consultant",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "hugo server --disableFastRender",
+    "build": "hugo --minify",
+    "build:css": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/output.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amrsingh29/babel-bot-octopus.git"
+  },
+  "keywords": [
+    "portfolio",
+    "hugo",
+    "tailwindcss"
+  ],
+  "author": "Amar Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amrsingh29/babel-bot-octopus/issues"
+  },
+  "homepage": "https://amrsingh29.github.io/babel-bot-octopus/",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.1.18"
+  }
+}

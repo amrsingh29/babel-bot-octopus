@@ -1,8 +1,259 @@
-/* Tailwind CSS Source File */
-/* This file will be configured in Issue #2 (Configure Tailwind CSS) */
+/* Tailwind CSS v4 - Main Stylesheet */
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Custom Design System Theme */
+@theme {
+  /* Typography - Display & Body Fonts */
+  --font-display: "DM Sans", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Crimson Pro", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
 
-/* Custom styles will be added here */
+  /* Color Palette - Primary */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #172554;
+
+  /* Color Palette - Navy (Main Brand Color) */
+  --color-navy-50: #f0f4f8;
+  --color-navy-100: #d9e2ec;
+  --color-navy-200: #bcccdc;
+  --color-navy-300: #9fb3c8;
+  --color-navy-400: #829ab1;
+  --color-navy-500: #627d98;
+  --color-navy-600: #486581;
+  --color-navy-700: #334e68;
+  --color-navy-800: #243b53;
+  --color-navy-900: #102a43;
+  --color-navy-950: #0a1929;
+
+  /* Color Palette - Slate Blue (Accent) */
+  --color-slate-blue-50: #f8fafc;
+  --color-slate-blue-100: #f1f5f9;
+  --color-slate-blue-200: #e2e8f0;
+  --color-slate-blue-300: #cbd5e1;
+  --color-slate-blue-400: #94a3b8;
+  --color-slate-blue-500: #64748b;
+  --color-slate-blue-600: #475569;
+  --color-slate-blue-700: #334155;
+  --color-slate-blue-800: #1e293b;
+  --color-slate-blue-900: #0f172a;
+  --color-slate-blue-950: #020617;
+
+  /* Color Palette - Teal (Secondary Accent) */
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+  --color-teal-950: #042f2e;
+
+  /* Neutral Colors */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+
+  /* Background Colors */
+  --color-background: #fafaf9;
+  --color-background-alt: #f5f5f4;
+  --color-surface: #ffffff;
+
+  /* Text Colors */
+  --color-text-primary: #171717;
+  --color-text-secondary: #525252;
+  --color-text-muted: #737373;
+
+  /* Spacing Scale (8px base unit) */
+  --spacing-section-sm: 3rem;    /* 48px - mobile */
+  --spacing-section-md: 4rem;    /* 64px - mobile */
+  --spacing-section-lg: 5rem;    /* 80px - desktop */
+  --spacing-section-xl: 7.5rem;  /* 120px - desktop */
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-2xl: 1.5rem;   /* 24px */
+
+  /* Typography Scale */
+  --text-hero: 4.5rem;      /* 72px */
+  --text-hero-mobile: 3rem; /* 48px */
+  --text-display: 3.5rem;   /* 56px */
+  --text-display-mobile: 2.25rem; /* 36px */
+  --text-section: 2.5rem;   /* 40px */
+  --text-section-mobile: 2rem; /* 32px */
+  --text-body: 1.125rem;    /* 18px */
+  --text-body-sm: 1rem;     /* 16px */
+
+  /* Line Heights */
+  --leading-tight: 1.2;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 200ms ease-in-out;
+  --transition-slow: 300ms ease-in-out;
+}
+
+/* Base Layer Customizations */
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: var(--leading-tight);
+    color: var(--color-navy-900);
+  }
+
+  p {
+    font-size: var(--text-body);
+    line-height: var(--leading-normal);
+  }
+
+  a {
+    color: var(--color-navy-700);
+    transition: color var(--transition-fast);
+  }
+
+  a:hover {
+    color: var(--color-navy-900);
+  }
+}
+
+/* Component Layer */
+@layer components {
+  /* Primary Button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3;
+    @apply font-semibold text-white;
+    @apply rounded-lg;
+    @apply transition-all duration-200;
+    background-color: var(--color-navy-800);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-navy-900);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Secondary Button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3;
+    @apply font-semibold;
+    @apply border-2 rounded-lg;
+    @apply transition-all duration-200;
+    color: var(--color-navy-800);
+    border-color: var(--color-navy-800);
+    background-color: transparent;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-navy-800);
+    color: white;
+  }
+
+  /* Card Component */
+  .card {
+    @apply p-6 rounded-xl;
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  /* Section Container */
+  .section {
+    @apply px-4 mx-auto max-w-7xl;
+    padding-top: var(--spacing-section-lg);
+    padding-bottom: var(--spacing-section-lg);
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      padding-top: var(--spacing-section-sm);
+      padding-bottom: var(--spacing-section-sm);
+    }
+  }
+
+  /* Callout Box */
+  .callout {
+    @apply p-4 rounded-lg border-l-4;
+    background-color: var(--color-navy-50);
+    border-left-color: var(--color-navy-600);
+  }
+
+  /* Logo Strip */
+  .logo-strip img {
+    @apply grayscale opacity-60;
+    transition: all var(--transition-normal);
+  }
+
+  .logo-strip img:hover {
+    @apply grayscale-0 opacity-100;
+  }
+}
+
+/* Utilities Layer */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-navy-700), var(--color-teal-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-padding {
+    padding-top: var(--spacing-section-lg);
+    padding-bottom: var(--spacing-section-lg);
+  }
+
+  @media (max-width: 768px) {
+    .section-padding {
+      padding-top: var(--spacing-section-sm);
+      padding-bottom: var(--spacing-section-sm);
+    }
+  }
+}

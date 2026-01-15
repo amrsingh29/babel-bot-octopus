@@ -1,0 +1,29 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<section class="section-padding">
+  <div class="section">
+    <div class="max-w-4xl">
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-navy-900 mb-6 leading-tight">
+        {{ .Site.Params.author }}
+      </h1>
+      <p class="text-xl md:text-2xl text-neutral-600 mb-8">
+        {{ .Site.Params.role }} at {{ .Site.Params.company }}
+      </p>
+      <p class="text-lg text-neutral-500 mb-8">
+        {{ .Site.Params.description }}
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="{{ "work/" | relURL }}" class="btn-primary">View Work</a>
+        <a href="{{ "thinking/" | relURL }}" class="btn-secondary">Explore Thinking</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="section-padding bg-neutral-50">
+  <div class="section">
+    {{ .Content }}
+  </div>
+</section>
+{{ end }}
