@@ -1,0 +1,101 @@
+# Site Configuration
+baseURL = 'https://amrsingh29.github.io/babel-bot-octopus/'
+languageCode = 'en-us'
+title = 'Amar Singh | Principal Solution Consultant'
+description = 'Executive-level thinking frameworks and applied case studies in AI Agents, AIOps, and ITSM transformation'
+
+# Build settings
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = false
+
+# Content settings
+summaryLength = 70
+
+# Pagination
+[pagination]
+  pagerSize = 10
+
+# Taxonomies
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+# Permalinks
+[permalinks]
+  work = '/work/:slug/'
+
+# Menu Configuration
+[menu]
+  [[menu.main]]
+    identifier = 'home'
+    name = 'Home'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    identifier = 'thinking'
+    name = 'Thinking'
+    url = '/thinking/'
+    weight = 2
+  [[menu.main]]
+    identifier = 'work'
+    name = 'Work'
+    url = '/work/'
+    weight = 3
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    url = '/about/'
+    weight = 4
+
+# Site Parameters
+[params]
+  author = 'Amar Singh'
+  role = 'Principal Solution Consultant'
+  company = 'BMC'
+  specialization = 'BMC Helix AIOps, AI Agent Solutions, ITSM'
+
+  # SEO
+  keywords = ['AI Agents', 'AIOps', 'ITSM', 'Solution Consultant', 'Digital Transformation']
+
+  # Social/Contact
+  linkedin = ''
+  github = ''
+  email = ''
+
+  # Design
+  dateFormat = 'January 2, 2006'
+
+  # Open Graph defaults
+  [params.og]
+    image = '/images/og-default.jpg'
+    locale = 'en_US'
+    siteName = 'Amar Singh Portfolio'
+
+# Markup Configuration
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    noClasses = false
+    style = 'monokai'
+
+# Output formats
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML']
+  page = ['HTML']
+
+# Minification (production)
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true

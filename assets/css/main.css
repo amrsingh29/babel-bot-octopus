@@ -1,0 +1,8 @@
+/* Tailwind CSS Source File */
+/* This file will be configured in Issue #2 (Configure Tailwind CSS) */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles will be added here */
