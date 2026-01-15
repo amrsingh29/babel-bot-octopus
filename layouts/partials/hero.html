@@ -1,0 +1,129 @@
+{{/*
+  Hero Section Component
+
+  Parameters (pass via dict):
+  - headline: Main headline text (required)
+  - subheadline: Subheadline text (optional)
+  - description: Additional description text (optional)
+  - primaryCTA: Primary button text (optional)
+  - primaryURL: Primary button URL (optional)
+  - secondaryCTA: Secondary button text (optional)
+  - secondaryURL: Secondary button URL (optional)
+  - image: Hero image path (optional)
+  - fullHeight: true for 100vh, false for 70vh (default: false)
+  - centered: true for centered text, false for left-aligned (default: false)
+  - class: Additional CSS classes (optional)
+
+  Usage:
+  {{ partial "hero.html" (dict
+      "headline" "Your Headline"
+      "subheadline" "Your subheadline"
+      "primaryCTA" "Get Started"
+      "primaryURL" "/work/"
+      "context" .
+  ) }}
+*/}}
+
+{{- $headline := .headline | default "" -}}
+{{- $subheadline := .subheadline | default "" -}}
+{{- $description := .description | default "" -}}
+{{- $primaryCTA := .primaryCTA | default "" -}}
+{{- $primaryURL := .primaryURL | default "" -}}
+{{- $secondaryCTA := .secondaryCTA | default "" -}}
+{{- $secondaryURL := .secondaryURL | default "" -}}
+{{- $image := .image | default "" -}}
+{{- $fullHeight := .fullHeight | default false -}}
+{{- $centered := .centered | default false -}}
+{{- $extraClass := .class | default "" -}}
+{{- $context := .context | default . -}}
+
+{{/* Height classes */}}
+{{- $heightClass := cond $fullHeight "min-h-screen" "min-h-[70vh]" -}}
+
+{{/* Alignment classes */}}
+{{- $alignClass := cond $centered "text-center items-center" "text-left items-start" -}}
+{{- $contentMaxWidth := cond $centered "max-w-3xl mx-auto" "max-w-4xl" -}}
+{{- $ctaJustify := cond $centered "justify-center" "justify-start" -}}
+
+<section class="section-padding {{ $heightClass }} flex {{ $extraClass }}">
+  <div class="section flex-1 flex items-center">
+    {{- if $image }}
+    {{/* Two-column layout with image */}}
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+      {{/* Text Content */}}
+      <div class="{{ $alignClass }} flex flex-col gap-6">
+        {{- if $headline }}
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy-900 leading-tight">
+          {{ $headline }}
+        </h1>
+        {{- end }}
+
+        {{- if $subheadline }}
+        <p class="text-xl md:text-2xl text-neutral-600">
+          {{ $subheadline }}
+        </p>
+        {{- end }}
+
+        {{- if $description }}
+        <p class="text-lg text-neutral-500">
+          {{ $description }}
+        </p>
+        {{- end }}
+
+        {{- if or $primaryCTA $secondaryCTA }}
+        <div class="flex flex-wrap gap-4 pt-2 {{ $ctaJustify }}">
+          {{- if and $primaryCTA $primaryURL }}
+          <a href="{{ $primaryURL | relURL }}" class="btn-primary">{{ $primaryCTA }}</a>
+          {{- end }}
+          {{- if and $secondaryCTA $secondaryURL }}
+          <a href="{{ $secondaryURL | relURL }}" class="btn-secondary">{{ $secondaryCTA }}</a>
+          {{- end }}
+        </div>
+        {{- end }}
+      </div>
+
+      {{/* Image */}}
+      <div class="relative">
+        <img
+          src="{{ $image | relURL }}"
+          alt="{{ $headline }}"
+          class="w-full h-auto rounded-2xl shadow-xl"
+          loading="lazy"
+        />
+      </div>
+    </div>
+    {{- else }}
+    {{/* Single column layout without image */}}
+    <div class="{{ $contentMaxWidth }} {{ $alignClass }} flex flex-col gap-6">
+      {{- if $headline }}
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy-900 leading-tight">
+        {{ $headline }}
+      </h1>
+      {{- end }}
+
+      {{- if $subheadline }}
+      <p class="text-xl md:text-2xl text-neutral-600">
+        {{ $subheadline }}
+      </p>
+      {{- end }}
+
+      {{- if $description }}
+      <p class="text-lg text-neutral-500">
+        {{ $description }}
+      </p>
+      {{- end }}
+
+      {{- if or $primaryCTA $secondaryCTA }}
+      <div class="flex flex-wrap gap-4 pt-2 {{ $ctaJustify }}">
+        {{- if and $primaryCTA $primaryURL }}
+        <a href="{{ $primaryURL | relURL }}" class="btn-primary">{{ $primaryCTA }}</a>
+        {{- end }}
+        {{- if and $secondaryCTA $secondaryURL }}
+        <a href="{{ $secondaryURL | relURL }}" class="btn-secondary">{{ $secondaryCTA }}</a>
+        {{- end }}
+      </div>
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</section>
