@@ -1,14 +1,51 @@
-<!-- Header - To be implemented in Issue #3 -->
 <header class="sticky top-0 z-50 bg-surface/95 backdrop-blur-sm border-b border-neutral-200">
   <nav class="section py-4">
     <div class="flex items-center justify-between">
-      <a href="{{ "/" | relURL }}" class="text-xl font-semibold text-navy-900">
+      <!-- Logo/Name -->
+      <a href="{{ "/" | relURL }}" class="text-xl font-semibold text-navy-900 hover:text-navy-700 transition-colors">
         {{ .Site.Params.author }}
       </a>
+
+      <!-- Desktop Navigation -->
       <ul class="hidden md:flex items-center gap-8">
         {{ range .Site.Menus.main }}
         <li>
-          <a href="{{ .URL | relURL }}" class="text-neutral-600 hover:text-navy-800 transition-colors">
+          {{ $isActive := or (eq $.RelPermalink .URL) (and (ne .URL "/") (hasPrefix $.RelPermalink .URL)) }}
+          <a href="{{ .URL | relURL }}"
+             class="transition-colors {{ if $isActive }}text-navy-800 font-medium{{ else }}text-neutral-600 hover:text-navy-800{{ end }}">
+            {{ .Name }}
+          </a>
+        </li>
+        {{ end }}
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button
+        type="button"
+        class="md:hidden p-2 text-neutral-600 hover:text-navy-800 transition-colors"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        onclick="toggleMobileMenu()"
+        id="mobile-menu-button">
+        <!-- Hamburger Icon -->
+        <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <!-- Close Icon (hidden by default) -->
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="md:hidden hidden">
+      <ul class="pt-4 pb-2 space-y-1 border-t border-neutral-200 mt-4">
+        {{ range .Site.Menus.main }}
+        <li>
+          {{ $isActive := or (eq $.RelPermalink .URL) (and (ne .URL "/") (hasPrefix $.RelPermalink .URL)) }}
+          <a href="{{ .URL | relURL }}"
+             class="block py-3 px-2 rounded-lg transition-colors {{ if $isActive }}bg-navy-50 text-navy-800 font-medium{{ else }}text-neutral-600 hover:bg-neutral-100 hover:text-navy-800{{ end }}">
             {{ .Name }}
           </a>
         </li>
@@ -17,3 +54,32 @@
     </div>
   </nav>
 </header>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const button = document.getElementById('mobile-menu-button');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+  button.setAttribute('aria-expanded', !isExpanded);
+  menu.classList.toggle('hidden');
+  hamburgerIcon.classList.toggle('hidden');
+  closeIcon.classList.toggle('hidden');
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+  const menu = document.getElementById('mobile-menu');
+  const button = document.getElementById('mobile-menu-button');
+
+  if (!menu.contains(event.target) && !button.contains(event.target)) {
+    menu.classList.add('hidden');
+    button.setAttribute('aria-expanded', 'false');
+    document.getElementById('hamburger-icon').classList.remove('hidden');
+    document.getElementById('close-icon').classList.add('hidden');
+  }
+});
+</script>
