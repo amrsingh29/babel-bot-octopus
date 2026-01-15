@@ -163,37 +163,64 @@
   /* Primary Button */
   .btn-primary {
     @apply inline-flex items-center justify-center px-6 py-3;
-    @apply font-semibold text-white;
-    @apply rounded-lg;
+    @apply font-semibold text-white rounded-lg;
     @apply transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-500;
     background-color: var(--color-navy-800);
+    min-height: 44px;
   }
 
   .btn-primary:hover {
     background-color: var(--color-navy-900);
-    transform: translateY(-1px);
+    transform: translateY(-1px) scale(1.02);
     box-shadow: var(--shadow-md);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0) scale(1);
   }
 
   /* Secondary Button */
   .btn-secondary {
     @apply inline-flex items-center justify-center px-6 py-3;
-    @apply font-semibold;
-    @apply border-2 rounded-lg;
+    @apply font-semibold border-2 rounded-lg;
     @apply transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-500;
     color: var(--color-navy-800);
     border-color: var(--color-navy-800);
     background-color: transparent;
+    min-height: 44px;
   }
 
   .btn-secondary:hover {
     background-color: var(--color-navy-800);
     color: white;
+    transform: scale(1.02);
+  }
+
+  .btn-secondary:active {
+    transform: scale(1);
+  }
+
+  /* Button Size Variants - use with btn-primary or btn-secondary */
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+    min-height: 36px;
+  }
+
+  .btn-md {
+    @apply px-6 py-3 text-base;
+    min-height: 44px;
+  }
+
+  .btn-lg {
+    @apply px-8 py-4 text-lg;
+    min-height: 52px;
   }
 
   /* Card Component */
   .card {
-    @apply p-6 rounded-xl;
+    @apply rounded-xl;
     background-color: var(--color-surface);
     box-shadow: var(--shadow-sm);
     transition: box-shadow var(--transition-normal), transform var(--transition-normal);
@@ -201,7 +228,12 @@
 
   .card:hover {
     box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+  }
+
+  /* Card as link - focus state */
+  a.card:focus {
+    @apply outline-none ring-2 ring-navy-500 ring-offset-2;
   }
 
   /* Section Container */
